@@ -1,13 +1,22 @@
+interface PromiseData<T> {
+  data: T[]
+  status: string
+}
+
 const promise = () =>
-  new Promise<number>((res) => {
-    res(1)
+  new Promise<PromiseData<number>>((res) => {
+    res({
+      data: [1],
+      status: 'resolved',
+    })
   })
 const asyncTest = async (): Promise<void> => {
   try {
     const result = await promise()
-    console.log(result)
+    console.log(result.data)
   } catch (error) {
     console.error(error)
   }
 }
+
 asyncTest()

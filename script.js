@@ -9,12 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const promise = () => new Promise((res) => {
-    res(1);
+    res({
+        data: [1],
+        status: 'resolved',
+    });
 });
 const asyncTest = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield promise();
-        console.log(result);
+        console.log(result.data);
     }
     catch (error) {
         console.error(error);
