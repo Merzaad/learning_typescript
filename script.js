@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const promise = () => new Promise((res) => {
     res({
-        data: [1],
+        data: { a: [1], b: '1' },
         status: 'resolved',
     });
 });
@@ -23,4 +23,29 @@ const asyncTest = () => __awaiter(void 0, void 0, void 0, function* () {
         console.error(error);
     }
 });
-asyncTest();
+const arr = [1, 2, '3'];
+arr.forEach((value) => {
+    // console.log(value.toUpperCase())
+});
+const f = ({ x, y }) => {
+    // console.log(y - x)
+    // console.log(x - y)
+    console.log(x + y);
+};
+const ff = (param) => {
+    var _a;
+    // console.log(param.y.toUpperCase())
+    console.log((_a = param.y) === null || _a === void 0 ? void 0 : _a.toUpperCase());
+};
+const fff = (x) => {
+    // console.log(x.toUpperCase())
+    if (typeof x === 'string') {
+        console.log(x.toUpperCase());
+    }
+    else if (Array.isArray(x)) {
+        console.log(x.map((i) => i.a));
+    }
+    else {
+        console.log(x.a);
+    }
+};
