@@ -49,3 +49,11 @@ const fff = (x) => {
         console.log(x.a);
     }
 };
+const x = () => {
+    return { data: { a: [1], b: '1' }, status: 'resolved', context: '', added: 'true' };
+};
+const xx = () => {
+    const a = { a: 'true', b: false };
+    const b = { a: 'true', b: false };
+    return { a, b };
+};

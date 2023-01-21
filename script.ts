@@ -5,7 +5,19 @@ interface PromiseData<T> {
   }
   status: string
 }
+type asdType = {
+  a?: number
+  b: number | string
+}
+type dasType = string
 
+interface Extend<T> extends PromiseData<T> {
+  context: string
+}
+
+interface Extend<T> {
+  added: 'true' | false
+}
 const promise = () =>
   new Promise<PromiseData<number>>((res) => {
     res({
@@ -47,4 +59,18 @@ const fff = (x: Array<{ a: number }> | { a: number } | string) => {
   } else {
     console.log(x.a)
   }
+}
+
+const x = (): Extend<number> => {
+  return { data: { a: [1], b: '1' }, status: 'resolved', context: '', added: 'true' }
+}
+
+interface XX {
+  a: 'true' | 'false'
+  b: boolean
+}
+const xx = (): { a: XX; b: XX } => {
+  const a = { a: 'true', b: false } as const
+  const b = { a: 'true', b: false } as XX
+  return { a, b }
 }
