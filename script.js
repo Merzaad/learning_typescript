@@ -53,7 +53,17 @@ const x = () => {
     return { data: { a: [1], b: '1' }, status: 'resolved', context: '', added: 'true' };
 };
 const xx = () => {
+    const z = { a: true, b: false };
     const a = { a: 'true', b: false };
     const b = { a: 'true', b: false };
-    return { a, b };
+    return { a, b /* z */ };
 };
+const nn = () => {
+    var _a;
+    const x = { a: null };
+    // const y = x.a.b
+    const y = (_a = x.a) === null || _a === void 0 ? void 0 : _a.b;
+    const z = x.a.b;
+    return z;
+};
+console.log(nn());

@@ -69,8 +69,22 @@ interface XX {
   a: 'true' | 'false'
   b: boolean
 }
-const xx = (): { a: XX; b: XX } => {
+const xx = (): { a: XX; b: XX; z?: XX } => {
+  const z = { a: true, b: false }
   const a = { a: 'true', b: false } as const
   const b = { a: 'true', b: false } as XX
-  return { a, b }
+  return { a, b /* z */ }
 }
+
+interface NullCheck {
+  a: { b: string } | null
+}
+
+const nn = () => {
+  const x: NullCheck = { a: null }
+  // const y = x.a.b
+  const y = x.a?.b
+  const z = x.a!.b
+  return z
+}
+console.log(nn())
