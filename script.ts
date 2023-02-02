@@ -87,4 +87,20 @@ const nn = () => {
   const z = x.a!.b
   return z
 }
-console.log(nn())
+
+interface Narrowing {
+  a: '' | null | (() => number)
+  b: null | number
+  c?: [] | false
+}
+
+const narrowing = (x: Narrowing): number => {
+  if (typeof x.b === 'number') {
+    return x.b
+  } else if (x.c) {
+    return x.c.length
+  } else if (x.a) return x.a()
+  else {
+    return 0
+  }
+}
