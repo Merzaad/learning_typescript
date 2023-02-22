@@ -79,3 +79,28 @@ const narrowing = (x) => {
         return 0;
     }
 };
+const hugh = (time) => __awaiter(void 0, void 0, void 0, function* () {
+    const testAsync = () => __awaiter(void 0, void 0, void 0, function* () {
+        let y = 0;
+        const x = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (y > 0) {
+                    resolve('resolve');
+                }
+                else {
+                    reject('reject');
+                }
+            }, 1000);
+        });
+        setTimeout(() => (y = 1), time);
+        return yield x();
+    });
+    try {
+        const g = yield testAsync();
+        console.log(g);
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
+hugh(1200);

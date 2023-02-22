@@ -104,3 +104,35 @@ const narrowing = (x: Narrowing): number => {
     return 0
   }
 }
+
+interface Hugh {
+  YT: number | null
+  TY: object[]
+}
+
+const hugh = async (time: number) => {
+  const testAsync = async () => {
+    let y = 0
+    const x = () =>
+      new Promise<string>((resolve, reject) => {
+        setTimeout(() => {
+          if (y > 0) {
+            resolve('resolve')
+          } else {
+            reject('reject')
+          }
+        }, 1000)
+      })
+
+    setTimeout(() => (y = 1), time)
+    return await x()
+  }
+  try {
+    const g = await testAsync()
+    console.log(g)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+hugh(1200)
