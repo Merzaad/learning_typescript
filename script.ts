@@ -134,5 +134,3 @@ const hugh = async (time: number) => {
     console.log(error)
   }
 }
-
-hugh(1200)
