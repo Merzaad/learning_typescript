@@ -11,8 +11,12 @@ const generic = (): void => {
 }
 
 const constraints = (): void => {
-  const a = <t extends {length: number}>(x: t) => x.length 
+  const a = <t extends { length: number }>(x: t) => x.length
   console.log(/* a(1), */ a('2'))
 }
-
-constraints()
+const optional = (): void => {
+  const a = (x: number, y?: number[]) => y?.map((i) => i + x)
+  // const b = (y?: number[]) => y.map((i) => i)
+  console.log(a(1, [2, 3, 4]))
+}
+optional()

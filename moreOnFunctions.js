@@ -8,4 +8,9 @@ const constraints = () => {
     const a = (x) => x.length;
     console.log(/* a(1), */ a('2'));
 };
-constraints();
+const optional = () => {
+    const a = (x, y) => y === null || y === void 0 ? void 0 : y.map((i) => i + x);
+    // const b = (y?: number[]) => y.map((i) => i)
+    console.log(a(1, [2, 3, 4]));
+};
+optional();
